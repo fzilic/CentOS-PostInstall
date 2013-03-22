@@ -13,7 +13,8 @@ _rpmforge_rpm_file="rpmforge-release-0.5.2-2.el6.rf._arch_.rpm"""
 
 # which architecture are we running on 
 # Allowed values are "x86_64" or "i686"
-_arch="x86_64"
+# Autodetect, but left for user override
+_arch="$(uname -m)"
 
 # used for local VMs only - be careful for public stuff :D
 _disable_pointelss_security="t"
