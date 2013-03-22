@@ -60,7 +60,7 @@ clear
 
 echo """
 Basic CentOS 6.x $_arch post install script
-Please do update OS before you continue.
+Please update OS before you continue.
 
 WARINING - Attempting to run this script on operating system that isn't CentOS 6.x might reslut in permanent damage to your system.
 
