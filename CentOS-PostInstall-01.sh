@@ -171,17 +171,16 @@ Failed to install packages"""
 if [ "$_disable_pointelss_security" = "t" ]; then
   _command='chkconfig | grep -q "iptables"'
   printExecuteCommand "$_to" "$_command"
-
+  _command='service iptables stop'
+  printExecuteCommand "$_to" "$_command"
   _command='chkconfig --del iptables'
   printExecuteCommand "$_to" "$_command"
 
   _command='chkconfig | grep -q "ip6tables"'
   printExecuteCommand "$_to" "$_command"
-
-  _command='chkconfig --del ip6tables'
+  _command='service ip6tables stop'
   printExecuteCommand "$_to" "$_command"
-
-  _command='chkconfig | grep -q "iptables"'
+  _command='chkconfig --del ip6tables'
   printExecuteCommand "$_to" "$_command"
 
   _command='setenforce 0'
