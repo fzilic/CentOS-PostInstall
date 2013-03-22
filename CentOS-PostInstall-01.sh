@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# Install using since basic CentOS might not have wget
+#
+# curl -L https://raw.github.com/fzilic/CentOS-PostInstall/master/CentOS-PostInstall-01.sh > CentOS-PostInstall-01.sh
+
 # Configuration, change if needed, defaults are quite fine
 
 # rpmforge setup configuration
