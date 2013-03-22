@@ -201,3 +201,10 @@ if [ "$_locate_upd" = "t" ]; then
   printExecuteCommand "$_to" "$_command"
 fi
 
+read -p """Basic configuration done.
+
+Press [enter] to restart machine, or ^C to for shell.
+"""
+
+_command="reboot"
+printExecuteCommand "$_to" "$_command"
