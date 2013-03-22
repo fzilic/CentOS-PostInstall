@@ -2,7 +2,7 @@
 
 # Install using since basic CentOS might not have wget
 #
-# curl -L https://raw.github.com/fzilic/CentOS-PostInstall/master/CentOS-PostInstall-01.sh > CentOS-PostInstall-01.sh && curl -L https://raw.github.com/fzilic/CentOS-PostInstall/master/basic-packages.conf > basic-packages.conf && chmod +x CentOS-PostInstall-01.sh && ./CentOS-PostInstall-01.sh
+# curl -s -L https://raw.github.com/fzilic/CentOS-PostInstall/master/CentOS-PostInstall-01.sh > CentOS-PostInstall-01.sh && curl -s -L https://raw.github.com/fzilic/CentOS-PostInstall/master/basic-packages.conf > basic-packages.conf && chmod +x CentOS-PostInstall-01.sh && ./CentOS-PostInstall-01.sh
 
 # Configuration, change if needed, defaults are quite fine
 
@@ -97,10 +97,10 @@ fi
 
 if [ "$_arch" = "x86_64" ]; then
   _rpmforge_rpm_url=${_rpmforge_rpm_url//_arch_/x86_64}
-  _rpmforge_rpm_file${_rpmforge_rpm_file//_arch/x86_64}
+  _rpmforge_rpm_file=${_rpmforge_rpm_file//_arch/x86_64}
 else
   _rpmforge_rpm_url=${_rpmforge_rpm_url//_arch_/i686}
-  _rpmforge_rpm_file${_rpmforge_rpm_file//_arch/i686}
+  _rpmforge_rpm_file=${_rpmforge_rpm_file//_arch/i686}
 fi
 
 if [ "$(cat /etc/*elease 2>/dev/null | uniq | grep -o 'CentOS')" != "CentOS" ]; then
