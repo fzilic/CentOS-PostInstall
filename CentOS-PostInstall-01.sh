@@ -2,7 +2,7 @@
 
 # Install using since basic CentOS might not have wget
 #
-# curl -L https://raw.github.com/fzilic/CentOS-PostInstall/master/CentOS-PostInstall-01.sh > CentOS-PostInstall-01.sh
+# curl -L https://raw.github.com/fzilic/CentOS-PostInstall/master/CentOS-PostInstall-01.sh > CentOS-PostInstall-01.sh && curl -L https://raw.github.com/fzilic/CentOS-PostInstall/master/basic-packages.conf > basic-packages.conf && chmod +x CentOS-PostInstall-01.sh && ./CentOS-PostInstall-01.sh
 
 # Configuration, change if needed, defaults are quite fine
 
@@ -25,6 +25,14 @@ _sudoers="t"
 _locate_upd="t"
 
 # !!!!! Private stuff, change at your own risk !!!!! #
+
+checkLastReturn() {
+  if [[ "$?" != "0" ]]; then 
+    echo $?
+    echo $1
+    exit 0
+  fi
+}
 
 printExecuteCommand() {
   if [ "$#" -ne "2" ]; then
