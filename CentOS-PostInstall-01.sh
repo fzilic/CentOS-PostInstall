@@ -104,7 +104,7 @@ else
   _rpmforge_rpm_file=${_rpmforge_rpm_file//_arch/i686}
 fi
 
-if [ "$(cat /etc/*elease 2>/dev/null | uniq | grep -o 'CentOS')" != "CentOS" ]; then
+if [ "$(cat /etc/*elease 2>/dev/null | grep -o 'CentOS' | uniq)" != "CentOS" ]; then
   echo "You don't apear to run CentOS"
   
   if [ "$_to" = "f" ]; then
