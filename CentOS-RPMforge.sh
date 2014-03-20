@@ -98,4 +98,3 @@ fi
 
 rpm -i $_rpmforge_rpm_file
 
-rpm -f $_rpmforge_rpm_file

@@ -89,4 +89,3 @@ fi
 
 rpm -i $_atrpms_rpm_file
 
-rpm -f $_atrpms_rpm_file
