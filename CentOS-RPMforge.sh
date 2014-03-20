@@ -27,6 +27,10 @@
 #  of the authors and should not be interpreted as representing official policies,
 #  either expressed or implied, of the FreeBSD Project.
 
+#  To install and execute copy and paste this line:
+#  
+#  curl -s -L https://raw.githubusercontent.com/fzilic/CentOS-PostInstall/master/CentOS-RPMforge.sh > CentOS-RPMforge.sh && chmod +x CentOS-RPMforge.sh && ./CentOS-RPMforge.sh
+#
 
 #http://pkgs.repoforge.org/rpmforge-release/rpmforge-release-0.5.3-1.el6.rf.x86_64.rpm
 #http://pkgs.repoforge.org/rpmforge-release/rpmforge-release-0.5.3-1.el6.rf.i686.rpm

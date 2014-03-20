@@ -27,6 +27,10 @@
 #  of the authors and should not be interpreted as representing official policies,
 #  either expressed or implied, of the FreeBSD Project.
 
+#  To install and execute copy and paste this line:
+#  
+#  curl -s -L https://raw.githubusercontent.com/fzilic/CentOS-PostInstall/master/CentOS-Install-Packages.sh > CentOS-Install-Packages.sh && chmod +x CentOS-Install-Packages.sh
+#
 
 _file=
 _repos=

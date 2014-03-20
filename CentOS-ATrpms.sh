@@ -27,6 +27,10 @@
 #  of the authors and should not be interpreted as representing official policies,
 #  either expressed or implied, of the FreeBSD Project.
 
+#  To install and execute copy and paste this line:
+#  
+#  curl -s -L https://raw.githubusercontent.com/fzilic/CentOS-PostInstall/master/CentOS-ATrpms.sh > CentOS-ATrpms.sh && chmod +x CentOS-ATrpms.sh && ./CentOS-ATrpms.sh 
+#
 
 #http://dl.atrpms.net/all/atrpms-repo-6-7.el6.x86_64.rpm
 #http://dl.atrpms.net/all/atrpms-repo-6-7.el6.i686.rpm
