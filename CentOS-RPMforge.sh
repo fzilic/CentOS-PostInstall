@@ -30,7 +30,7 @@
 #  To install and execute copy and paste this line:
 #  
 #  curl -s -L https://raw.githubusercontent.com/fzilic/CentOS-PostInstall/master/CentOS-RPMforge.sh > CentOS-RPMforge.sh && chmod +x CentOS-RPMforge.sh && ./CentOS-RPMforge.sh
-#
+
 
 #http://pkgs.repoforge.org/rpmforge-release/rpmforge-release-0.5.3-1.el6.rf.x86_64.rpm
 #http://pkgs.repoforge.org/rpmforge-release/rpmforge-release-0.5.3-1.el6.rf.i686.rpm
@@ -38,18 +38,20 @@
 #http://pkgs.repoforge.org/rpmforge-release/rpmforge-release-0.5.3-1.el5.rf.x86_64.rpm
 #http://pkgs.repoforge.org/rpmforge-release/rpmforge-release-0.5.3-1.el5.rf.i386.rpm
 
-_rpmforge_rpm_url="http://pkgs.repoforge.org/rpmforge-release/rpmforge-release-0.5.3-1.el_version_.rf._arch_.rpm"
+_rpmforge_rpm_url="http://pkgs.repoforge.org/rpmforge-release/rpmforge-release-_rpm_ver_.el_version_.rf._arch_.rpm"
 
 #rpmforge-release-0.5.3-1.el6.rf.x86_64.rpm
 #rpmforge-release-0.5.3-1.el6.rf.i686.rpm
 
 #rpmforge-release-0.5.3-1.el5.rf.x86_64.rpm
 #rpmforge-release-0.5.3-1.el5.rf.i386.rpm
-_rpmforge_rpm_file="rpmforge-release-0.5.3-1.el_version_.rf._arch_.rpm"
+_rpmforge_rpm_file="rpmforge-release-_rpm_ver_.el_version_.rf._arch_.rpm"
 
 _arch="$(uname -m)"
 
 _version="$(cat /etc/redhat-release  | cut -d ' ' -f 3 | cut -d '.' -f 1)"
+
+_latest_rpm="$(curl -s -L http://pkgs.repoforge.org/rpmforge-release/ | sed  's/.*>\(rpmforge-release-.*\)<.*/\1/'  | grep "\.rpm" | grep -v src | sed 's/.*rpmforge-release-\(.*\)\.el.\.rf.*/\1/' | sort -u | tail -n 1)"
 
 
 if [ "$_arch" != "x86_64" -a "$_arch" != "i686" ]; then
@@ -62,11 +64,18 @@ if [ "$_version" != "6" -a "$_version" != "5" ]; then
   exit 1
 fi 
 
+if [ -z "$_latest_rpm" ]; then
+  echo "Failed to determine latest RPMforge rpm version" >&2
+  exit 1
+fi
+
 _rpmforge_rpm_url=${_rpmforge_rpm_url//_arch_/$_arch}
 _rpmforge_rpm_url=${_rpmforge_rpm_url//_version_/$_version}
+_rpmforge_rpm_url=${_rpmforge_rpm_url//_rpm_ver_/$_latest_rpm}
 
 _rpmforge_rpm_file=${_rpmforge_rpm_file//_arch_/$_arch}
 _rpmforge_rpm_file=${_rpmforge_rpm_file//_version_/$_version}
+_rpmforge_rpm_file=${_rpmforge_rpm_file//_rpm_ver_/$_latest_rpm}
 
 echo "URL: "$_rpmforge_rpm_url
 echo "RPM: "$_rpmforge_rpm_file
